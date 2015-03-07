@@ -1,0 +1,14 @@
+[package]
+
+name = "mvcs"
+version = "0.0.1"
+authors = ["Grayson Koonce <grayson.koonce@gmail.com>"]
+
+[dependencies]
+iron = "*"
+
+[profile.dev]
+opt-level = 0  # Controls the --opt-level the compiler builds with
+debug = true   # Controls whether the compiler passes -g or `--cfg ndebug`
+rpath = false  # Controls whether the compiler passes `-C rpath`
+lto = false    # Controls `-C lto` for binaries and staticlibs
