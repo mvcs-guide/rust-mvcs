@@ -6,6 +6,7 @@ authors = ["Grayson Koonce <grayson.koonce@gmail.com>"]
 
 [dependencies]
 iron = "*"
+router = "*"
 
 [profile.dev]
 opt-level = 0  # Controls the --opt-level the compiler builds with

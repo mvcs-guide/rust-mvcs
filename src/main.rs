@@ -1,15 +1,17 @@
-extern crate mvcs;
+extern crate iron;
+use iron::prelude::*;
 
-use mvcs::services;
-use mvcs::entities::user::User;
+extern crate router;
+use router::Router;
+
+extern crate mvcs;
+use mvcs::controllers;
 
 fn main() {
+    let mut router = Router::new();
 
-    // create a user entity from request
-    let mut user = User{ id: 0, name: "Grayson Koonce".to_string() };
+    router.get("/", controllers::index::index);
+    router.post("/users", controllers::user::post);
 
-    // delegate creation to the service layer
-    services::user::create(&mut user);
-
-    println!("Created {} ({})", user.name, user.id);
+    Iron::new(router).http("localhost:3000").unwrap();
 }
